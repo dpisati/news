@@ -1,38 +1,85 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css?family=Exo:100,200,300,400,500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Exo", sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.nav {
+  background-color: black;
+  color: white;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.name {
+  font-weight: 100;
+  font-family: "Exo", sans-serif;
+  font-size: 25px;
+  margin-left: 15px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.logo {
+  width: 50px;
+  height: 50px;
+  background-image: url("./pictures/d_white.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  margin: 15px;
+}
+
+.useBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.right {
+  display: flex;
+  margin-right: 20px;
+  position: relative;
+}
+
+.searchInput {
+  width: 250px;
+  height: 50px;
+  padding-left: 5px;
+  padding-bottom: 10px;
+  border: none;
+  border-bottom: black 1px solid;
+  outline: none;
+  font-size: 1.2em;
+}
+
+.searchButton {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background-color: black;
+  outline: none;
+  border-radius: 50%;
+  position: absolute;
+  right: 5px;
+  background-image: url("./pictures/search.png");
+  background-size: 1.3em;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.searchButton:hover {
+  cursor: pointer;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.newsBody {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  background-color: cornsilk;
 }
