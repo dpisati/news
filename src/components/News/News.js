@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import NewsCard from "./NewsCard";
-import $ from "jquery";
 
 export class News extends Component {
   constructor(props) {
@@ -33,27 +32,27 @@ export class News extends Component {
   //     });
   // }
 
-  componentDidMount(trendingResults) {
-    const urlString =
-      "https://newsapi.org/v2/top-headlines?country=us&apiKey=fe8a84b676c84ea387ddba2872f9c0d6";
-    $.ajax({
-      url: urlString,
-      success: trendingResults => {
-        const results = trendingResults.results;
-        var movieRows = [];
+  // componentDidMount(trendingResults) {
+  //   const urlString =
+  //     "https://newsapi.org/v2/top-headlines?country=us&apiKey=fe8a84b676c84ea387ddba2872f9c0d6";
+  //   $.ajax({
+  //     url: urlString,
+  //     success: trendingResults => {
+  //       const results = trendingResults.results;
+  //       var movieRows = [];
 
-        results.forEach(movie => {
-          const movieRow = <NewsCard key={movie.id} movie={movie} />;
-          movieRows.push(movieRow);
-        });
+  //       results.forEach(movie => {
+  //         const movieRow = <NewsCard key={movie.id} movie={movie} />;
+  //         movieRows.push(movieRow);
+  //       });
 
-        this.setState({ rows: movieRows });
-      },
-      error: (xhr, status, err) => {
-        console.error("failed to fetch", xhr, status, err);
-      }
-    });
-  }
+  //       this.setState({ rows: movieRows });
+  //     },
+  //     error: (xhr, status, err) => {
+  //       console.error("failed to fetch", xhr, status, err);
+  //     }
+  //   });
+  // }
 
   render() {
     return (
