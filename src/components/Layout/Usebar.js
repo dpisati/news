@@ -4,7 +4,13 @@ export class Usebar extends Component {
   render() {
     return (
       <div className="useBar">
-        <h1>Search bar</h1>
+        <div className="left">
+          <ul>
+            <li>National</li>
+            <li>World</li>
+            <li>Weather</li>
+          </ul>
+        </div>
         <div className="right">
           <input
             type="text"

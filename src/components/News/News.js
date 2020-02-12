@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import NewsCard from "./NewsCard";
+import axios from "axios";
 
 export class News extends Component {
   constructor(props) {
@@ -7,57 +8,44 @@ export class News extends Component {
     this.state = { news: "" };
   }
 
-  // componentDidMount() {
-  //   const news = [];
-  //   const url =
-  //     "https://newsapi.org/v2/top-headlines?country=us&apiKey=fe8a84b676c84ea387ddba2872f9c0d6";
-  //   fetch(url)
-  //     .then(response => {
-  //       return response.json();
-  //     })
-  //     .then(data => {
-  //       const result = data.articles;
-  //       console.log(news.props.article);
+  componentDidMount() {
+    this.getNews();
+  }
 
-  //       result.forEach(article => {
-  //         const newsCard = (
-  //           <NewsCard key={article.publishedAt} article={article} />
-  //         );
-  //         news.push(newsCard);
-  //         this.setState({ news: newsCard });
-  //       });
-  //     })
-  //     .catch(err => {
-  //       console.log("Error fetching data, ", err);
-  //     });
-  // }
+  async getNews() {
+    const newsArray = [];
+    const url =
+      "https://newsapi.org/v2/top-headlines?" +
+      "country=us&" +
+      "apiKey=fe8a84b676c84ea387ddba2872f9c0d6";
+    const res = await axios.get(url).then(res => {
+      const news = res.data.articles;
+      news.forEach(article => {
+        const newsCard = (
+          <NewsCard key={article.publishedAt} article={article} />
+        );
+        newsArray.push(newsCard);
+      });
+      this.setState({ news: newsArray });
+    });
+  }
 
-  // componentDidMount(trendingResults) {
-  //   const urlString =
-  //     "https://newsapi.org/v2/top-headlines?country=us&apiKey=fe8a84b676c84ea387ddba2872f9c0d6";
-  //   $.ajax({
-  //     url: urlString,
-  //     success: trendingResults => {
-  //       const results = trendingResults.results;
-  //       var movieRows = [];
-
-  //       results.forEach(movie => {
-  //         const movieRow = <NewsCard key={movie.id} movie={movie} />;
-  //         movieRows.push(movieRow);
-  //       });
-
-  //       this.setState({ rows: movieRows });
-  //     },
-  //     error: (xhr, status, err) => {
-  //       console.error("failed to fetch", xhr, status, err);
-  //     }
-  //   });
-  // }
+  renderNews() {
+    if (this.state.news) {
+      return <div className="">{this.state.news.map(article => article)}</div>;
+    } else {
+      return (
+        <div className="loading_div">
+          <h1 className="loading">Loading Article...</h1>
+        </div>
+      );
+    }
+  }
 
   render() {
     return (
       <div className="newsBody">
-        <h1>Hello World</h1>
+        <div className="cards">{this.renderNews()}</div>
       </div>
     );
   }
