@@ -5,7 +5,7 @@ export class Usebar extends Component {
     return (
       <div className="useBar">
         <div className="left">
-          <ul>
+          <ul className="ulBar">
             <li>National</li>
             <li>World</li>
             <li>Weather</li>

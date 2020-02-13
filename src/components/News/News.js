@@ -32,7 +32,11 @@ export class News extends Component {
 
   renderNews() {
     if (this.state.news) {
-      return <div className="">{this.state.news.map(article => article)}</div>;
+      return (
+        <div className="cardArticle">
+          {this.state.news.map(article => article)}
+        </div>
+      );
     } else {
       return (
         <div className="loading_div">
@@ -45,7 +49,7 @@ export class News extends Component {
   render() {
     return (
       <div className="newsBody">
-        <div className="cards">{this.renderNews()}</div>
+        <div className="articlesCards">{this.renderNews()}</div>
       </div>
     );
   }
