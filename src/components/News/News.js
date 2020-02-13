@@ -5,7 +5,7 @@ import axios from "axios";
 export class News extends Component {
   constructor(props) {
     super(props);
-    this.state = { news: "" };
+    this.state = { news: "", search: "" };
   }
 
   componentDidMount() {
@@ -16,7 +16,7 @@ export class News extends Component {
     const newsArray = [];
     const url =
       "https://newsapi.org/v2/top-headlines?" +
-      "country=us&" +
+      "country=nz&" +
       "apiKey=fe8a84b676c84ea387ddba2872f9c0d6";
     const res = await axios.get(url).then(res => {
       const news = res.data.articles;
@@ -40,6 +40,7 @@ export class News extends Component {
     } else {
       return (
         <div className="loading_div">
+          <div className="spinner"></div>
           <h1 className="loading">Loading Article...</h1>
         </div>
       );

@@ -7,6 +7,20 @@
   font-family: "Exo", sans-serif;
 }
 
+.spinner {
+  width: 64px;
+  height: 64px;
+  background: url("../src/pictures/spinner.gif");
+  margin: 20px;
+}
+
+.loading_div {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .nav {
   background-color: black;
   color: white;
@@ -33,10 +47,11 @@
 }
 
 .useBar {
+  width: 70%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 10px 0px;
+  margin: 10px auto;
 }
 
 .left ul li {
@@ -81,11 +96,11 @@
 }
 
 .newsBody {
-  background-color: cornsilk;
 }
 
 .articlesCards {
-  width: 100%;
+  width: 80%;
+  margin: 0px auto;
 }
 
 .cardArticle {
@@ -95,10 +110,16 @@
   justify-content: center;
   align-items: center;
 }
+
+.card img {
+  width: 349px;
+  height: 200px;
+}
 .card {
   width: 350px;
   height: 400px;
   margin: 20px;
+  box-shadow: 0px 0px 25px 1px #ccc;
 }
 
 .title {
