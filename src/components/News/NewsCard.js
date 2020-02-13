@@ -4,9 +4,10 @@ export class NewsCard extends Component {
   render() {
     return (
       <div className="card">
-        <img src={this.props.article.urlToImage} alt="img" />
-        <h3 className="title">{this.props.article.title}</h3>
-        <p>{this.props.article.description}</p>
+        <img className="image" src={this.props.article.urlToImage} alt="img" />
+
+        <h3 className="cardTitle">{this.props.article.title}</h3>
+        <p className="cardBody">{this.props.article.description}</p>
       </div>
     );
   }
