@@ -2,14 +2,26 @@ import React from "react";
 import { connect } from "react-redux";
 import NewsCard from "./NewsCard";
 
-export const News = ({ news }) => {
+function actionTest(article) {
+  return {
+    type: "SEARCH_ACTIVE",
+    payload: "Search in use",
+    log: console.log(article)
+  };
+}
+
+export const News = ({ news, dispatch }) => {
   if (news) {
     return (
       <div className="newsBody">
         <div className="articlesCards">
           <div className="cardArticle">
             {news.map(article => (
-              <NewsCard key={article.title} article={article} />
+              <NewsCard
+                key={article.title}
+                article={article}
+                action={() => dispatch(actionTest(article))}
+              />
             ))}
           </div>
         </div>

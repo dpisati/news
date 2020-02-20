@@ -8,6 +8,9 @@ export class NewsCard extends Component {
 
         <h3 className="cardTitle">{this.props.article.title}</h3>
         <p className="cardBody">{this.props.article.description}</p>
+        <button onClick={() => this.props.action(this.props.article)}>
+          Click me
+        </button>
       </div>
     );
   }
