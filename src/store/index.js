@@ -1,4 +1,8 @@
-import { createStore } from "redux";
+import { applyMiddleware, createStore } from "redux";
+import logger from "redux-logger";
+import thunk from "redux-thunk";
+
+const middleware = applyMiddleware(thunk, logger);
 
 const initialState = {
   searchField: "oi",
@@ -22,6 +26,7 @@ const initialState = {
 };
 
 function reducer(state = initialState, action) {
+  applyMiddleware(logger);
   switch (action.type) {
     case "SEARCH_ACTIVE":
       return {
@@ -40,6 +45,6 @@ function reducer(state = initialState, action) {
   }
 }
 
-const store = createStore(reducer);
+const store = createStore(reducer, middleware);
 
 export default store;

@@ -1,20 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
 
-let searchInput = "oi eu";
-
-function searchChange(search) {
+function searchChange(event) {
   return {
     type: "SEARCH_CHANGE",
-    payload: searchInput,
-    log: search
+    payload: event.target.value
   };
-}
-
-function onSearchChange(event) {
-  const searchTerm = event.target.value;
-  let searchInput = searchTerm;
-  console.log(searchInput);
 }
 
 const Usebar = ({ searchField, dispatch }) => (
@@ -32,15 +23,13 @@ const Usebar = ({ searchField, dispatch }) => (
         placeholder="Search..."
         className="searchInput"
         id="inputSearchField"
-        // onChange={event => console.log(event.target.value)}
-        onChange={event => onSearchChange(event)}
+        onChange={event => dispatch(searchChange(event))}
       ></input>
       <button
         className="searchButton"
         // onClick={() => dispatch(searchChange())}
-        onClick={() => console.log("test button", searchInput)}
+        onClick={() => console.log("Search for the keyword: ", searchField)}
       ></button>
-      {console.log("console log search", searchField)}
     </div>
   </div>
 );
