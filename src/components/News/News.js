@@ -6,7 +6,7 @@ function actionTest(article) {
   return {
     type: "SEARCH_ACTIVE",
     payload: "Search in use",
-    log: console.log(article)
+    log: article
   };
 }
 
