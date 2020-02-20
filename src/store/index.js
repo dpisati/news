@@ -1,7 +1,7 @@
 import { createStore } from "redux";
 
 const initialState = {
-  searchField: "",
+  searchField: "oi",
   news: [
     {
       title: "Esse eh um test",
@@ -22,8 +22,22 @@ const initialState = {
 };
 
 function reducer(state = initialState, action) {
-  console.log(action);
-  return state;
+  switch (action.type) {
+    case "SEARCH_ACTIVE":
+      return {
+        ...state,
+        searchField: "NEW SEARCH"
+      };
+
+    case "SEARCH_CHANGE":
+      return {
+        ...state,
+        searchField: action.payload
+      };
+
+    default:
+      return state;
+  }
 }
 
 const store = createStore(reducer);
