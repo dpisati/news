@@ -69,8 +69,45 @@
 
 .left ul li {
   display: inline-block;
-  margin: 0px 20px;
+  margin: 0px 5px;
+  padding: 5px 10px;
 }
+
+li {
+  padding-bottom: 5px;
+  transition: 0.5s ease;
+}
+li:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.national {
+  border-bottom: 3px rgb(1, 116, 209) solid;
+}
+.sports {
+  border-bottom: 3px rgb(255, 0, 0) solid;
+}
+.money {
+  border-bottom: 3px rgb(6, 175, 0) solid;
+}
+.corona {
+  border-bottom: 3px rgb(251, 255, 28) solid;
+}
+.national:hover {
+  background-color: rgb(1, 116, 209);
+}
+.sports:hover {
+  background-color: rgb(255, 0, 0);
+}
+.money:hover {
+  background-color: rgb(6, 175, 0);
+}
+.corona:hover {
+  background-color: rgb(251, 255, 28);
+  color: black;
+}
+
 .right {
   display: flex;
   margin-right: 20px;
@@ -166,7 +203,7 @@
 .btn-container {
   position: absolute;
   width: 100%;
-  height: 50px;
+  height: 55px;
   bottom: 0px;
 }
 
@@ -185,8 +222,7 @@
   right: 0px;
   margin-left: auto;
   margin-right: auto;
-  bottom: 10px;
-
+  bottom: 15px;
   transition: 0.5s ease;
 }
 .view_button:hover {

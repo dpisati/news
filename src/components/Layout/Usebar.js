@@ -20,9 +20,10 @@ const Usebar = ({ searchField, dispatch }) => (
   <div className="useBar">
     <div className="left">
       <ul className="ulBar">
-        <li>National</li>
-        <li>World</li>
-        <li>Weather</li>
+        <li className="corona">Coronavirus</li>
+        <li className="national">National</li>
+        <li className="sports">Sports</li>
+        <li className="money">Money</li>
       </ul>
     </div>
     <div className="right">
