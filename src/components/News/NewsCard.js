@@ -17,11 +17,23 @@ export class NewsCard extends Component {
             src={this.props.article.urlToImage}
             alt="img"
           />
-          <h3 className="cardTitle">{this.props.article.title}</h3>
-          <p className="cardBody">{this.props.article.description}</p>
-          <button onClick={() => this.props.action(this.props.article)}>
-            Click me
-          </button>
+          <h3 className="cardTitle">
+            {this.props.article.title.substring(
+              0,
+              this.props.article.title.indexOf(" - ")
+            )}
+          </h3>
+          <p className="cardBody">
+            {this.props.article.description.substring(0, 80) + "..."}
+          </p>
+          <div className="btn-container">
+            <button
+              className="view_button"
+              onClick={() => this.props.action(this.props.article)}
+            >
+              View More
+            </button>
+          </div>
         </div>
       );
     }
