@@ -1,10 +1,18 @@
 import React from "react";
 import { connect } from "react-redux";
+import { fecthData } from "../../store/index";
 
 function searchChange(event) {
   return {
     type: "SEARCH_CHANGE",
     payload: event.target.value
+  };
+}
+function search(searchField) {
+  fecthData();
+  return {
+    type: "SEARCH",
+    payload: searchField
   };
 }
 
@@ -27,8 +35,7 @@ const Usebar = ({ searchField, dispatch }) => (
       ></input>
       <button
         className="searchButton"
-        // onClick={() => dispatch(searchChange())}
-        onClick={() => console.log("Search for the keyword: ", searchField)}
+        onClick={() => dispatch(search(searchField))}
       ></button>
     </div>
   </div>

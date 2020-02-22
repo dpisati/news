@@ -10,7 +10,7 @@ function actionTest(article) {
   };
 }
 
-export const News = ({ news, dispatch }) => {
+export const News = ({ news, dispatch, fetched }) => {
   if (news) {
     return (
       <div className="newsBody">
@@ -20,6 +20,7 @@ export const News = ({ news, dispatch }) => {
               <NewsCard
                 key={article.title}
                 article={article}
+                fetched={fetched}
                 action={() => dispatch(actionTest(article))}
               />
             ))}
@@ -37,4 +38,6 @@ export const News = ({ news, dispatch }) => {
   }
 };
 
-export default connect(state => ({ news: state.news }))(News);
+export default connect(state => ({ news: state.news, fetched: state.fetched }))(
+  News
+);
