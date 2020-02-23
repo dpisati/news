@@ -6,7 +6,6 @@ export class NewsCard extends Component {
       return (
         <div className="loading_div">
           <div className="spinner"></div>
-          <h1 className="loading">Loading Article...</h1>
         </div>
       );
     } else {

@@ -19,11 +19,20 @@ function search(searchField) {
 const Usebar = ({ searchField, dispatch }) => (
   <div className="useBar">
     <div className="left">
-      <ul className="ulBar">
-        <li className="corona">Coronavirus</li>
-        <li className="national">National</li>
-        <li className="sports">Sports</li>
-        <li className="money">Money</li>
+      <ul>
+        <li className="national">
+          <a href="#">National</a>
+        </li>
+        <li className="corona">
+          <a href="#">Coronavirus</a>
+        </li>
+        <li className="sports">
+          <a href="#">Sports</a>
+        </li>
+        <li className="money">
+          <a href="#">Money</a>
+        </li>
+        <hr />
       </ul>
     </div>
     <div className="right">
