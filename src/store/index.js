@@ -6,29 +6,14 @@ import axios from "axios";
 const middleware = applyMiddleware(thunk, logger);
 
 const initialState = {
+  mainLink: "National",
   fetching: false,
   fetched: false,
   error: null,
   searchField: "",
   url:
     "http://newsapi.org/v2/top-headlines?country=nz&apiKey=fe8a84b676c84ea387ddba2872f9c0d6",
-  news: [
-    {
-      title: "Esse eh um test",
-      description:
-        "Esse eh apenas um artigo em teste para ver se o redux funciona"
-    },
-    {
-      title: "Esse eh um test 2",
-      description:
-        "Esse eh apenas um artigo em teste para ver se o redux funciona 2"
-    },
-    {
-      title: "Esse eh um test 3",
-      description:
-        "Esse eh apenas um artigo em teste para ver se o redux funciona 3"
-    }
-  ]
+  news: []
 };
 
 function reducer(state = initialState, action) {
@@ -36,7 +21,6 @@ function reducer(state = initialState, action) {
   switch (action.type) {
     case "SEARCH_ACTIVE": {
       return { ...state, searchField: "NEW SEARCH" };
-      break;
     }
     case "SEARCH_CHANGE": {
       return {
@@ -47,17 +31,14 @@ function reducer(state = initialState, action) {
           action.payload +
           "&apiKey=fe8a84b676c84ea387ddba2872f9c0d6"
       };
-      break;
     }
     case "SEARCH": {
       return {
         ...state
       };
-      break;
     }
     case "FETCH_API_START": {
       return { ...state, fetching: true };
-      break;
     }
     case "FECH_DATA_ERROR": {
       return {
@@ -65,7 +46,6 @@ function reducer(state = initialState, action) {
         fetching: false,
         error: action.payload
       };
-      break;
     }
     case "RECEIVE_NEWS": {
       return {
@@ -74,15 +54,14 @@ function reducer(state = initialState, action) {
         fetched: true,
         news: action.payload
       };
-      break;
     }
     case "MAIN_ARTICLES": {
       return {
         ...state,
         searchField: "",
-        url: action.payload
+        url: action.payload,
+        mainLink: action.link
       };
-      break;
     }
     default:
       return state;

@@ -15,23 +15,27 @@ function search(searchField) {
     payload: searchField
   };
 }
-function searchMain(word) {
+function searchMain(word, mainLink) {
   return {
     type: "MAIN_ARTICLES",
-    payload: word
+    payload: word,
+    link: mainLink
   };
 }
 
-const Usebar = ({ searchField, dispatch }) => (
+const Usebar = ({ searchField, mainLink, dispatch }) => (
   <div className="useBar">
     <div className="left">
       <ul>
-        <li className="national">
+        <li
+          className={mainLink === "National" ? "national active" : "national"}
+        >
           <a
             onClick={() => {
               dispatch(
                 searchMain(
-                  "http://newsapi.org/v2/top-headlines?country=nz&apiKey=fe8a84b676c84ea387ddba2872f9c0d6"
+                  "http://newsapi.org/v2/top-headlines?country=nz&apiKey=fe8a84b676c84ea387ddba2872f9c0d6",
+                  "National"
                 )
               );
               dispatch(search(searchField));
@@ -41,12 +45,13 @@ const Usebar = ({ searchField, dispatch }) => (
             National
           </a>
         </li>
-        <li className="corona">
+        <li className={mainLink === "Corona" ? "corona active" : "corona"}>
           <a
             onClick={() => {
               dispatch(
                 searchMain(
-                  "http://newsapi.org/v2/everything?q=coronavirus&from=2020-01-24&sortBy=publishedAt&apiKey=fe8a84b676c84ea387ddba2872f9c0d6"
+                  "http://newsapi.org/v2/everything?q=coronavirus&from=2020-01-24&sortBy=publishedAt&apiKey=fe8a84b676c84ea387ddba2872f9c0d6",
+                  "Corona"
                 )
               );
               dispatch(search(searchField));
@@ -56,12 +61,13 @@ const Usebar = ({ searchField, dispatch }) => (
             Coronavirus
           </a>
         </li>
-        <li className="sports">
+        <li className={mainLink === "Sports" ? "sports active" : "sports"}>
           <a
             onClick={() => {
               dispatch(
                 searchMain(
-                  "http://newsapi.org/v2/everything?q=league&from=2020-01-24&sortBy=publishedAt&apiKey=fe8a84b676c84ea387ddba2872f9c0d6"
+                  "http://newsapi.org/v2/everything?q=league&from=2020-01-24&sortBy=publishedAt&apiKey=fe8a84b676c84ea387ddba2872f9c0d6",
+                  "Sports"
                 )
               );
               dispatch(search(searchField));
@@ -71,12 +77,13 @@ const Usebar = ({ searchField, dispatch }) => (
             Sports
           </a>
         </li>
-        <li className="money">
+        <li className={mainLink === "Money" ? "money active" : "money"}>
           <a
             onClick={() => {
               dispatch(
                 searchMain(
-                  "http://newsapi.org/v2/everything?q=investment&from=2020-01-24&sortBy=publishedAt&apiKey=fe8a84b676c84ea387ddba2872f9c0d6"
+                  "http://newsapi.org/v2/everything?q=investment&from=2020-01-24&sortBy=publishedAt&apiKey=fe8a84b676c84ea387ddba2872f9c0d6",
+                  "Money"
                 )
               );
               dispatch(search(searchField));
@@ -107,5 +114,6 @@ const Usebar = ({ searchField, dispatch }) => (
 );
 
 export default connect(state => ({
-  searchField: state.searchField
+  searchField: state.searchField,
+  mainLink: state.mainLink
 }))(Usebar);

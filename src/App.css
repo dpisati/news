@@ -97,6 +97,30 @@ hr {
   border: none;
   transition: 0.3s ease-in-out;
 }
+
+/* /////////////////////////////////////////////////////////////// */
+
+.corona.active ~ hr {
+  margin-left: 25%;
+  background: rgb(0, 194, 0);
+}
+
+.sports.active ~ hr {
+  margin-left: 50%;
+  background: rgb(0, 140, 255);
+}
+
+.money.active ~ hr {
+  margin-left: 75%;
+  background: rgb(246, 209, 0);
+}
+.national.active ~ hr {
+  margin-left: 0%;
+  background: tomato;
+}
+
+/* /////////////////////////////////////////////////////////////// */
+
 .corona:hover ~ hr {
   margin-left: 25%;
   background: rgb(0, 194, 0);
@@ -110,6 +134,10 @@ hr {
 .money:hover ~ hr {
   margin-left: 75%;
   background: rgb(246, 209, 0);
+}
+.national:hover ~ hr {
+  margin-left: 0%;
+  background: tomato;
 }
 
 .right {
