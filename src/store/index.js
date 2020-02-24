@@ -9,7 +9,7 @@ const initialState = {
   fetching: false,
   fetched: false,
   error: null,
-  searchField: "Initial Search String",
+  searchField: "",
   url:
     "http://newsapi.org/v2/top-headlines?country=nz&apiKey=fe8a84b676c84ea387ddba2872f9c0d6",
   news: [
@@ -73,6 +73,14 @@ function reducer(state = initialState, action) {
         fetching: false,
         fetched: true,
         news: action.payload
+      };
+      break;
+    }
+    case "MAIN_ARTICLES": {
+      return {
+        ...state,
+        searchField: "",
+        url: action.payload
       };
       break;
     }
